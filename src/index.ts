@@ -1,5 +1,5 @@
 import { app } from './app';
-import { Config } from './config';
+import { Config, logger } from './config';
 import { configService } from './services';
 
 const { PORT } = Config;
@@ -15,9 +15,9 @@ const startServer = async () => {
   // establish DB connection here
   await connectToDB();
 
-  app.listen(PORT, () => console.log(`Listening on PORT ${PORT} 🚀`));
+  app.listen(PORT, () => logger.info(`Listening on PORT ${PORT} 🚀`));
 };
 
 startServer().catch((err) => {
-  console.error(err instanceof Error ? err.message : err);
+  logger.error(err instanceof Error ? err.message : err);
 });
