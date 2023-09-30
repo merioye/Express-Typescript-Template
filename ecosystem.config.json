@@ -1,0 +1,14 @@
+{
+  "apps": [
+    {
+      "name": "express + typescript template",
+      "script": "dist/index.js",
+      "autorestart": true,
+      "watch": false,
+      "time": true,
+      "env": {
+        "NODE_ENV": "production"
+      }
+    }
+  ]
+}
