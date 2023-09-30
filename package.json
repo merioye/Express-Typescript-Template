@@ -4,5 +4,9 @@
   "description": "Production ready express + typescript template",
   "main": "dist/index.js",
   "author": "Umair Saleem",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.8.0",
+    "typescript": "^5.2.2"
+  }
 }
