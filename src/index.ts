@@ -1,6 +1,8 @@
 import { app } from './app';
+import { Config } from './config';
+import { configService } from './services';
 
-const PORT = 8000;
+const { PORT } = Config;
 
 // fake DB connection
 const connectToDB = () => {
@@ -8,6 +10,8 @@ const connectToDB = () => {
 };
 
 const startServer = async () => {
+  configService.requireConfig();
+
   // establish DB connection here
   await connectToDB();
 
