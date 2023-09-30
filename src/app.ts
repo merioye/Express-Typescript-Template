@@ -1,9 +1,15 @@
-import express, { Request, Response } from 'express';
+import express, { Request, Response, json } from 'express';
+import helmet from 'helmet';
+import compression from 'compression';
 import createError from 'http-errors';
 import { router } from './routes';
 import { errorHandlerMiddleware } from './middlewares';
 
 const app = express();
+
+app.use(helmet());
+app.use(compression());
+app.use(json());
 
 app.use('/api', router);
 
