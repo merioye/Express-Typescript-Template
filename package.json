@@ -1,0 +1,8 @@
+{
+  "name": "express-typescript-template",
+  "version": "1.0.0",
+  "description": "Production ready express + typescript template",
+  "main": "dist/index.js",
+  "author": "Umair Saleem",
+  "license": "ISC"
+}
