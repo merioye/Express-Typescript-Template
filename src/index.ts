@@ -1,3 +1,3 @@
-function hello(username: string): void {
+export function hello(username: string): void {
   console.log(`Hello, ${username}`);
 }
