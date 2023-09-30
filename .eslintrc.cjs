@@ -1,16 +1,18 @@
 module.exports = {
   env: {
     node: true,
+    jest: true,
   },
   extends: [
     'eslint:recommended',
     'plugin:@typescript-eslint/recommended-type-checked',
     'plugin:import/recommended',
     'plugin:import/typescript',
+    'plugin:jest/recommended',
     'prettier',
     'plugin:prettier/recommended',
   ],
-  plugins: ['import', '@typescript-eslint', 'prettier'],
+  plugins: ['import', '@typescript-eslint', 'jest', 'prettier'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     project: ['./tsconfig.json', './tsconfig.eslint.json'],
