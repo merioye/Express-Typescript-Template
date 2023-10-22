@@ -8,9 +8,11 @@
   "include": [
     ".eslintrc.cjs",
     "jest.config.js",
-    "src/**/__tests__",
-    "src/**/__mocks__",
-    "src/**/test-setup.ts"
+    "**/*.spec.ts",
+    "**/*.test.ts",
+    "**/__tests__",
+    "**/__mocks__",
+    "**/test-setup.ts"
   ],
   "exclude": ["node_modules"]
 }

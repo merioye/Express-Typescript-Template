@@ -16,7 +16,8 @@
     "test:watch": "jest --watchAll",
     "test:band": "jest --runInBand",
     "test:watchBand": "jest --watchAll --runInBand",
-    "coverage": "jest --coverage"
+    "test:ci": "jest --ci",
+    "test:cov": "jest --coverage"
   },
   "author": "Umair Saleem",
   "license": "ISC",
