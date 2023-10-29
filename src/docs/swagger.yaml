@@ -1,0 +1,10 @@
+openapi: 3.0.0
+info:
+  title: Express + Typescript Template
+  description: This is Express + Typescript Template application made with Express and documented with Swagger
+  version: 1.0.0
+  contact:
+    email: abc@gmail.com
+servers:
+  - url: http://localhost:8000
+    description: Local Server
