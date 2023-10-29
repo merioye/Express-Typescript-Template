@@ -16,7 +16,7 @@ app.use('/api/v1/api-docs', swaggerConfig.serve, swaggerConfig.setup);
 app.use('/api/v1/auth', authRouter);
 
 // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
-app.all('*', (req: Request, res: Response): never => {
+app.all('*', (_: Request, __: Response): never => {
   throw createError(404, 'Route not found');
 });
 

@@ -4,10 +4,10 @@ import { logger } from '../config';
 
 export const errorHandlerMiddleware = (
   err: HttpError,
-  req: Request,
+  _: Request,
   res: Response,
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars, no-unused-vars
-  next: NextFunction,
+  // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
+  __: NextFunction,
 ) => {
   logger.error(err.message);
   const statusCode = err.statusCode || 500;
