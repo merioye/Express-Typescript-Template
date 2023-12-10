@@ -1,7 +1,8 @@
 import { config } from 'dotenv';
+import * as path from 'path';
 import { ENVIRONMENT } from '../constants';
 
-config({ path: `.env.${process.env.NODE_ENV || ENVIRONMENT.DEV}` });
+config({ path: path.join(__dirname, `../../.env.${process.env.NODE_ENV}`) });
 
 const { PORT, NODE_ENV } = process.env;
 

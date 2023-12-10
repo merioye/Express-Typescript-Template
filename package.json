@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "start": "pm2 start ecosystem.config.json --no-daemon",
-    "dev": "nodemon src/index.ts",
+    "dev": "cross-env NODE_ENV=development nodemon src/index.ts",
     "prebuild": "rimraf dist",
     "build": "tsc && copyfiles -u 1 src/docs/swagger.yaml dist",
     "format:check": "prettier . --check",
@@ -33,6 +33,7 @@
     "@types/yamljs": "^0.2.31",
     "@typescript-eslint/eslint-plugin": "^6.7.3",
     "@typescript-eslint/parser": "^6.7.3",
+    "cross-env": "^7.0.3",
     "eslint": "^8.50.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-import-resolver-typescript": "^3.6.1",
