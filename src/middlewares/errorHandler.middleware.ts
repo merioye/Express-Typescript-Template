@@ -4,20 +4,26 @@ import { logger } from '../config';
 
 export const errorHandlerMiddleware = (
   err: HttpError,
-  _: Request,
+  req: Request,
   res: Response,
   // eslint-disable-next-line no-unused-vars, @typescript-eslint/no-unused-vars
   __: NextFunction,
 ) => {
-  logger.error(err.message);
   const statusCode = err.statusCode || 500;
+  const type = err.name || 'Internal Server Error';
+  const message = err.message || 'Something went wrong';
+  const path = req.path || '';
+  const location = (err.location as string) || '';
+
+  logger.error(message, { path, location });
+
   res.status(statusCode).json({
     errors: [
       {
-        type: err.name,
-        message: err.message,
-        path: '',
-        location: '',
+        type,
+        message,
+        path,
+        location,
       },
     ],
   });
