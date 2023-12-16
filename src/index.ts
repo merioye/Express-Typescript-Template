@@ -1,6 +1,7 @@
 import { app } from './app';
 import { Config, logger } from './config';
 import { configService } from './services';
+import { PROCESS_TERMINATION_SIGNAL } from './constants';
 
 const { PORT } = Config;
 
@@ -19,21 +20,24 @@ const startServer = async () => {
     logger.info(`Listening on PORT ${PORT} 🚀`),
   );
 
-  const handleGracefulShutdown = (signal: 'SIGINT' | 'SIGTERM'): void => {
+  const handleGracefulShutdown = (signal: PROCESS_TERMINATION_SIGNAL): void => {
     logger.info(`${signal} signal received, closing http server...`);
     server.close(() => {
       logger.info('Http server is closed.');
-      // close DB connection here
+
+      // Close any resources or perform cleanup before shutting down
+      // For example, close database connections, release resources, etc.
+
       process.exit(0);
     });
   };
 
-  process.on('SIGINT', () => {
-    handleGracefulShutdown('SIGINT');
+  process.on(PROCESS_TERMINATION_SIGNAL.SIGINT, () => {
+    handleGracefulShutdown(PROCESS_TERMINATION_SIGNAL.SIGINT);
   });
 
-  process.on('SIGTERM', () => {
-    handleGracefulShutdown('SIGTERM');
+  process.on(PROCESS_TERMINATION_SIGNAL.SIGTERM, () => {
+    handleGracefulShutdown(PROCESS_TERMINATION_SIGNAL.SIGTERM);
   });
 };
 

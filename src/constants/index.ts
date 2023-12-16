@@ -4,3 +4,8 @@ export enum ENVIRONMENT {
   PROD = 'production',
   TEST = 'test',
 }
+
+export enum PROCESS_TERMINATION_SIGNAL {
+  SIGINT = 'SIGINT',
+  SIGTERM = 'SIGTERM',
+}
